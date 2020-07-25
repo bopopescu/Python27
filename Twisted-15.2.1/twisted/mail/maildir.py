@@ -775,7 +775,7 @@ class MaildirDirdbmDomain(AbstractMaildirDomain):
 
     /USER/{cur, new, del} <-- each user has these three directories
 
-    @ivar postmaster: See L{__init__}.
+    @ivar postmain: See L{__init__}.
 
     @type dbm: L{DirDBM <dirdbm.DirDBM>}
     @ivar dbm: The authentication database for the domain.
@@ -783,7 +783,7 @@ class MaildirDirdbmDomain(AbstractMaildirDomain):
     portal = None
     _credcheckers = None
 
-    def __init__(self, service, root, postmaster=0):
+    def __init__(self, service, root, postmain=0):
         """
         @type service: L{MailService}
         @param service: An email service.
@@ -791,9 +791,9 @@ class MaildirDirdbmDomain(AbstractMaildirDomain):
         @type root: L{bytes}
         @param root: The maildir root directory.
 
-        @type postmaster: L{bool}
-        @param postmaster: A flag indicating whether non-existent addresses
-            should be forwarded to the postmaster (C{True}) or
+        @type postmain: L{bool}
+        @param postmain: A flag indicating whether non-existent addresses
+            should be forwarded to the postmain (C{True}) or
             bounced (C{False}).
         """
         AbstractMaildirDomain.__init__(self, service, root)
@@ -801,7 +801,7 @@ class MaildirDirdbmDomain(AbstractMaildirDomain):
         if not os.path.exists(dbm):
             os.makedirs(dbm)
         self.dbm = dirdbm.open(dbm)
-        self.postmaster = postmaster
+        self.postmain = postmain
 
 
     def userDirectory(self, name):
@@ -813,13 +813,13 @@ class MaildirDirdbmDomain(AbstractMaildirDomain):
 
         @rtype: L{bytes} or L{NoneType <types.NoneType>}
         @return: The path to the user's mail directory for a valid user. For
-            an invalid user, the path to the postmaster's mailbox if bounces
+            an invalid user, the path to the postmain's mailbox if bounces
             are redirected there. Otherwise, C{None}.
         """
         if name not in self.dbm:
-            if not self.postmaster:
+            if not self.postmain:
                 return None
-            name = 'postmaster'
+            name = 'postmain'
         dir = os.path.join(self.root, name)
         if not os.path.exists(dir):
             initializeMaildir(dir)

@@ -132,8 +132,8 @@ typedef struct ssl_st {
 } SSL_CTX;
 
 typedef struct {
-    int master_key_length;
-    unsigned char master_key[...];
+    int main_key_length;
+    unsigned char main_key[...];
     ...;
 } SSL_SESSION;
 

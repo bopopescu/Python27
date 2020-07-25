@@ -40,7 +40,7 @@ if os.name != 'posix':
 else:
     skip = None
 
-testingSphinxConf = "master_doc = 'index'\n"
+testingSphinxConf = "main_doc = 'index'\n"
 
 try:
     import pydoctor.driver
@@ -1307,7 +1307,7 @@ class SphinxBuilderTests(TestCase):
 
     confContent = """\
                   source_suffix = '.rst'
-                  master_doc = 'index'
+                  main_doc = 'index'
                   """
     confContent = textwrap.dedent(confContent)
 

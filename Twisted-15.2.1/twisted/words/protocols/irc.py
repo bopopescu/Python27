@@ -2169,7 +2169,7 @@ class IRCClient(basic.LineReceiver):
 
     def ctcpQuery_CLIENTINFO(self, user, channel, data):
         """
-        A master index of what CTCP tags this client knows.
+        A main index of what CTCP tags this client knows.
 
         If no arguments are provided, respond with a list of known tags.
         If an argument is provided, provide human-readable help on

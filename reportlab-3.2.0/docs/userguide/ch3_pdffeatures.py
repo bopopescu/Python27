@@ -294,7 +294,7 @@ disc("""
 The PDF security handler allows two different passwords to be specified for a document:
 """)
 
-bullet("""The 'owner' password (aka the 'security password' or 'master password')
+bullet("""The 'owner' password (aka the 'security password' or 'main password')
 """)
 
 bullet("""The 'user' password (aka the 'open password')

@@ -57,7 +57,7 @@ reverse_soa = dns.Record_SOA(
 
 my_soa = dns.Record_SOA(
     mname = 'my-domain.com',
-    rname = 'postmaster.test-domain.com',
+    rname = 'postmain.test-domain.com',
     serial = 130,
     refresh = 12345,
     minimum = 1,
@@ -865,14 +865,14 @@ class NoInitialResponseTests(unittest.TestCase):
 class SecondaryAuthorityServiceTests(unittest.TestCase):
     """
     Tests for L{SecondaryAuthorityService}, a service which keeps one or more
-    authorities up to date by doing zone transfers from a master.
+    authorities up to date by doing zone transfers from a main.
     """
 
     def test_constructAuthorityFromHost(self):
         """
         L{SecondaryAuthorityService} can be constructed with a C{str} giving a
-        master server address and several domains, causing the creation of a
-        secondary authority for each domain and that master server address and
+        main server address and several domains, causing the creation of a
+        secondary authority for each domain and that main server address and
         the default DNS port.
         """
         primary = '192.168.1.2'
@@ -893,9 +893,9 @@ class SecondaryAuthorityServiceTests(unittest.TestCase):
     def test_constructAuthorityFromHostAndPort(self):
         """
         L{SecondaryAuthorityService.fromServerAddressAndDomains} constructs a
-        new L{SecondaryAuthorityService} from a C{str} giving a master server
+        new L{SecondaryAuthorityService} from a C{str} giving a main server
         address and DNS port and several domains, causing the creation of a secondary
-        authority for each domain and that master server address and the given
+        authority for each domain and that main server address and the given
         DNS port.
         """
         primary = '192.168.1.3'

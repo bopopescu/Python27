@@ -25,7 +25,7 @@ Subject: test
         self.assertEqual(to, 'moshez@example.com')
         mess = rfc822.Message(cStringIO.StringIO(s))
         self.assertEqual(mess['To'], 'moshez@example.com')
-        self.assertEqual(mess['From'], 'postmaster@example.org')
+        self.assertEqual(mess['From'], 'postmain@example.org')
         self.assertEqual(mess['subject'], 'Returned Mail: see transcript for details')
 
     def testBounceMIME(self):

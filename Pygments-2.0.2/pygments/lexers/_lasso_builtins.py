@@ -1331,7 +1331,7 @@ BUILTINS = {
         'site_id',
         'site_name',
         'sys_homepath',
-        'sys_masterhomepath',
+        'sys_mainhomepath',
         'sys_supportpath',
         'sys_librariespath',
         'sys_databasespath',
